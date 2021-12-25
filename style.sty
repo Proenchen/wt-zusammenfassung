@@ -1,0 +1,24 @@
+\ProvidesPackage{style}
+
+\RequirePackage[ngerman]{babel}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{graphicx}
+\RequirePackage{mathtools,amsmath,amssymb,amsthm,mathrsfs}
+\RequirePackage{dsfont}
+\RequirePackage{enumitem}
+\RequirePackage{float}
+\RequirePackage{csquotes}
+\RequirePackage{tikz}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\pg}[1]{\paragraph{#1}\mbox{}\\}
+\setlist[itemize]{parsep=7pt}
+
+\newenvironment{tightcenter}{%
+	\setlength\topsep{0pt}
+	\setlength\parskip{0pt}
+	\begin{center}
+	}{%
+	\end{center}
+}
