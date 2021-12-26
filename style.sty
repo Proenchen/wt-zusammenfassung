@@ -9,16 +9,26 @@
 \RequirePackage{float}
 \RequirePackage{csquotes}
 \RequirePackage{tikz}
+\RequirePackage[parfill]{parskip}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\PP}{\mathbb{P}}
-\newcommand{\pg}[1]{\paragraph{#1}\mbox{}\\}
+
+\makeatletter
+\renewcommand\paragraph{%
+	\medskip
+	\@startsection{paragraph}{4}{0mm}%
+	{-\baselineskip}%
+	{.5\baselineskip}%
+	{\normalfont\normalsize\bfseries}}
+\makeatother
+
 \setlist[itemize]{parsep=7pt}
 
-\newenvironment{tightcenter}{%
-	\setlength\topsep{0pt}
-	\setlength\parskip{0pt}
+\newenvironment{tightcenter}{
+	\setlength\topsep{12pt}
+	\setlength\parskip{-\baselineskip}
 	\begin{center}
-	}{%
+	}{
 	\end{center}
 }

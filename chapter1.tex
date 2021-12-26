@@ -1,4 +1,5 @@
 \section{Grundbegriffe}
+\paragraph{Definition: Ergebnisse und Ereignisse}
 \begin{itemize}
 	\item \textbf{Grundraum} ist eine nicht leere Menge $\Omega\neq\emptyset$ und enthält alle möglichen \textbf{Ergebnisse} eines Zufallsexperiments
 	\item \textbf{Ereignisse} sind Teilmengen $A\subseteq\Omega$, denen eine Wahrscheinlichkeit zugeordnet werden kann. 
@@ -18,7 +19,7 @@ Für $n$ Wiederholungen und Ergebnisse $\omega_1,\ldots,\omega_n\in\Omega$ gilt:
 	$\PP_n(A)\coloneqq\frac{1}{n}\sum\limits_{i=1}^{n} \mathds{1}_{\{\omega_i \in A\}}$
 \end{tightcenter}
 
-\pg{Definition: Diskretes Wahrscheinlichkeitsmaß} 
+\paragraph{Definition: Diskretes Wahrscheinlichkeitsmaß} 
 Eine Abbildung $\PP:\mathscr{P}(\Omega) \rightarrow [0,1]$ heißt diskretes Wahrscheinlichkeitsmaß, falls
 \begin{itemize}
 	\item $\PP(\Omega)=1$
@@ -34,7 +35,7 @@ Es gelten folgende Rechenregeln für diskrete Wahrscheinlichkeitsräume:
 	\item $\PP(A\cup B)=\PP(A)+\PP(B)-\PP(A\cap B)$
 \end{itemize}
 
-\pg{Definition: Bernoulliverteilung}
+\paragraph{Definition: Bernoulliverteilung}
 Wahrscheinlichkeitsverteilung heißt Bernoulliverteilung $Ber_p$ mit Erfolgswahrscheinlichkeit p, wenn:
 \begin{itemize}
 	\item Grundraum $\Omega={\{0,1\}}$
@@ -42,27 +43,26 @@ Wahrscheinlichkeitsverteilung heißt Bernoulliverteilung $Ber_p$ mit Erfolgswahr
 \end{itemize}
 Es gilt $\PP(\{0\})=1-\PP(\{1\})=1-p$
 
-\pg{Definition: Gleichverteilung}
+\paragraph{Definition: Gleichverteilung}
 Das Wahrscheinlichkeitsmaß $(\Omega,\PP)$ heißt Gleichverteilung oder \textbf{Laplace-Verteilung} $U_A$ auf $\Omega$, falls
 \begin{itemize}
 	\item $\Omega\neq\emptyset$ endlich
 	\item $\PP(A)=\frac{|A|}{|\Omega|}$, für $A\subseteq\Omega$
 \end{itemize}
 
-\pg{Urnenmodelle/Fächermodelle}
+\paragraph{Urnenmodelle/Fächermodelle}
 \includegraphics[width=\textwidth]{images/image1.png}
 Urnenmodelle ermöglichen es, die Wahrscheinlichkeiten zu bestimmen, falls von einer Gleichverteilung ausgegangen
 werden kann!
 
-\pg{Definition: Zähldichte}
+\paragraph{Definition: Zähldichte}
 Sei $(\Omega,\PP)$ ein diskreter Wahrscheinlichkeitsraum.
 Dann wird die Funktion\\
 \begin{tightcenter}
 	$f:\Omega\rightarrow[0,1], f(\omega)=\PP(\{\omega\})$
 \end{tightcenter}
-\textbf{Wahrscheinlichkeitsfunktion} oder \textbf{Zähldichte} von $\PP$ genannt. 
-
-\pagebreak
+\textbf{Wahrscheinlichkeitsfunktion} oder \textbf{Zähldichte} von $\PP$ genannt.
+\newpage
 Diese besitzt folgende Eigenschaften:
 \begin{itemize}
 	\item $\Omega_T\coloneqq\{\omega\in\Omega\mid f(\omega)>0\}$ ist abzählbar und heißt \textbf{Träger} von $\PP$ bzw. von $f$
@@ -70,14 +70,14 @@ Diese besitzt folgende Eigenschaften:
 \end{itemize}
 Die Zähldichte ist eindeutig!
 
-\pg{Definition: Binomialverteilung}
+\paragraph{Definition: Binomialverteilung}
 Das Wahrscheinlichkeitsmaß $\PP=Bin_{(n,p)}$ auf $\{0,\ldots,n\}$ mit der Zähldichte\\
 \begin{tightcenter}
 	$f(k)=\binom{n}{k}p^k\cdot(1-p)^{n-k}$ \qquad$\forall k\in\{0,\ldots,n\}$
 \end{tightcenter}
 heißt \textbf{Binomialverteilung} mit Parametern $n\in\N$ und $p\in[0,1]$.
 
-\pg{Definition: Geometrische Verteilung}
+\paragraph{Definition: Geometrische Verteilung}
 Das Wahrscheinlichkeitsmaß $\PP=Geo_p$ auf $\N_0$ mit der Zähldichte\\
 \begin{tightcenter}
 	$f(k)=(1-p)^k\cdotp$ \qquad$\forall k\in\N_0$
