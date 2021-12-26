@@ -1,0 +1,44 @@
+\section{Wahrscheinlichkeitsmaße auf $\pmb{\R}$}
+Kontinuierliche Ergebnisse lassen sich nicht mehr durch eine abzählbare Anzahl an Versuchsausgängen beschreiben.
+Wahrscheinlichkeiten kann man dann nur noch \enquote{gutartigen Mengen} zuordnen, u.a.:
+\begin{itemize}
+	\item Intervalle sind gutartig
+	\item Komplemente gutartiger Mengen sind gutartig
+	\item Abzählbare Vereinigungen gutartiger Mengen sind gutartig
+\end{itemize}
+Bezeichne nun mit $\AG\subseteq\PG(\Omega)$ das System aller \enquote{gutartigen} Mengen.
+
+\paragraph{Definition: $\pmb{\sigma}$-Algebra}
+Sei $\Omega\neq\emptyset$ ein beliebiger Grundraum. Eine Menge $\AG\subseteq\PG(\Omega)$ heißt $\pmb{\sigma}$\textbf{-Algebra} auf $\Omega$, falls:
+\begin{itemize}
+	\item $\emptyset,\Omega\in\AG$
+	\item $A\in\AG\implies A^{\mathsf{C}}\in\AG$
+	\item $A_n\in\AG\;\forall n\in\N\implies\bigcup\limits_{n\in\N}A_n\in\AG$
+\end{itemize}
+$(\Omega,\AG)$ heißt dann \textbf{messbarer Raum}.
+Die Mengen $A\in\AG$ heißen \textbf{Ereignisse}.
+
+\paragraph{Definition: Borel-$\pmb{\sigma}$-Algebra}
+Die \textbf{Borel-$\pmb{\sigma}$-Algebra} $\BG$ auf $\R$ beschreibt die kleinste $\sigma$-Algebra, welche alle Intervalle $(a,b]$ für beliebige $a,b\in\R$ enthält.
+
+\paragraph{Definition: Wahrscheinlichkeitsmaß und Wahrscheinlichkeitsraum}
+Sei $(\Omega,\AG)$ ein Messraum mit Grundraum $\Omega\neq\emptyset$ und $\sigma$-Algebra $\AG$.
+Eine Abbildung $\PP:\AG\rightarrow[0,1]$ heißt Wahrscheinlichkeitsmaß auf $(\Omega,\AG)$, falls
+\begin{itemize}
+	\item $\PP(\Omega)=1$
+	\item $A_n\in\AG,n\in\N$, disjunkt $\implies\PP(\bigcup\limits_{n\in\N}A_n)=\sum\limits_{n\in\N}\PP(A_n)$ \qquad($\sigma$-Additivität)
+\end{itemize}
+($\Omega,\AG\PP$) heißt dann \textbf{Wahrscheinlichkeitsraum}.
+
+\newpage
+\paragraph{Sätze und Definitionen für allgemeine Wahrscheinlichkeitsräume}
+Folgende Sätze und Definitionen übertragen sich sinngemäß, wobei als Ereignisse jeweils nur Mengen aus $\AG$ betrachtet werden:
+\begin{itemize}
+	\item \hyperref[rules]{Rechenregeln für diskrete Wahrscheinlichkeitsmaße}
+	\item \hyperref[conditioned]{Bedingte Wahrscheinlichkeiten}
+	\item \hyperref[bayes]{Satz von der Totalen Wahrscheinlichkeit und von Bayes}
+	\item \hyperref[independant]{Stochastische Unabhängigkeit von Ereignissen}
+\end{itemize}
+\underline{Unterschied}: Während diskrete Wahrscheinlichkeitsmaße $\PP$ vollständig durch die Zähldichte $f(\omega)\coloneqq\PP(\{\omega\}),\omega\in\Omega$ bestimmt sind, ist dies für allgemeine Wahrscheinlichkeitsmaße falsch!
+
+\paragraph{Verteilungsfunktion}

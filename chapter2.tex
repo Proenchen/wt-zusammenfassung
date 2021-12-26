@@ -1,5 +1,5 @@
 \section{Bedingte Wahrscheinlichkeit und Unabhängigkeit}
-\paragraph{Definition: Bedingte Wahrscheinlichkeit}
+\paragraph{Definition: Bedingte Wahrscheinlichkeit}\label{conditioned}
 Für $(\Omega,\PP)$ diskreter Wahrscheinlichkeitsraum und $A,B\in\Omega$ mit $\PP(B)>0$ heißt
 \begin{tightcenter}
 	$\PP(A\mid B)\coloneqq\cfrac{\PP(A\cap B)}{\PP(B)}$
@@ -13,7 +13,7 @@ Seien $A_1,\ldots,A_n\subseteq\Omega$ Ereignisse mit $\PP(A_1\cap\ldots\cap A_{n
 \end{tightcenter}
 Im Fall von n=2 gilt: $\PP(A\cap B)=\PP(B)\cdot\PP(A\mid B)$
 
-\paragraph{Satz von der totalen Wahrscheinlichkeit und Satz von Bayes}
+\paragraph{Satz von der totalen Wahrscheinlichkeit und Satz von Bayes}\label{bayes}
 Sei $(\Omega,\PP)$ ein diskreter Wahrscheinlichkeitsraum, $I$ eine abzählbare Indexmenge, $B_i\subseteq\Omega, i\in I$, disjunkt mit $\PP(B_i)>0$ und $\bigcup\limits_{i\in I}B_i=\Omega$ und $A\subseteq\Omega$ beliebig.
 \begin{itemize}
 	\item Es gilt der \textbf{Satz von der totalen Wahrscheinlichkeit}:
@@ -26,8 +26,9 @@ Sei $(\Omega,\PP)$ ein diskreter Wahrscheinlichkeitsraum, $I$ eine abzählbare I
 	\end{tightcenter}
 \end{itemize}
 
-\paragraph{Definition: Stochastische Unabhängigkeit}
-Sei $(\Omega,\PP)$ ein diskreter Wahrscheinlichkeitsraum. Zwei Ereignisse $A,B\subseteq\Omega$ heißen \textbf{stochastisch unabhängig}, falls
+\paragraph{Definition: Stochastische Unabhängigkeit}\label{independant}
+Sei $(\Omega,\PP)$ ein diskreter Wahrscheinlichkeitsraum. 
+Zwei Ereignisse $A,B\subseteq\Omega$ heißen \textbf{stochastisch unabhängig}, falls
 \begin{tightcenter}
 	$\PP(A\cap B)=\PP(A)\cdot\PP(B)$
 \end{tightcenter}

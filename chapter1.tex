@@ -19,15 +19,16 @@ Für $n$ Wiederholungen und Ergebnisse $\omega_1,\ldots,\omega_n\in\Omega$ gilt:
 	$\PP_n(A)\coloneqq\frac{1}{n}\sum\limits_{i=1}^{n} \mathds{1}_{\{\omega_i \in A\}}$
 \end{tightcenter}
 
-\paragraph{Definition: Diskretes Wahrscheinlichkeitsmaß} 
-Eine Abbildung $\PP:\mathscr{P}(\Omega) \rightarrow [0,1]$ heißt diskretes Wahrscheinlichkeitsmaß, falls
+\paragraph{Definition: Diskretes Wahrscheinlichkeitsmaß und Wahrscheinlichkeitsraum}
+Eine Abbildung $\PP:\PG(\Omega) \rightarrow [0,1]$ heißt diskretes Wahrscheinlichkeitsmaß, falls
 \begin{itemize}
 	\item $\PP(\Omega)=1$
-	\item $\forall A_n \subseteq \Omega, n\in\N$, disjunkt: $\PP(\bigcup\limits_{n\in \N} A_n)=\sum\limits_{i=1}^{n} \PP(A_n)$ \null\hfill($\sigma$-Additivität)
+	\item $\forall A_n \subseteq \Omega, n\in\N$, disjunkt: $\PP(\bigcup\limits_{n\in \N} A_n)=\sum\limits_{i=1}^{n} \PP(A_n)$ \qquad($\sigma$-Additivität)
 	\item es existiert eine abzählbare Menge $\Omega_0\subseteq\Omega$ mit $\PP(\Omega_0)=1$
 \end{itemize}
 Dann heißt $(\Omega, \PP)$ \textbf{diskreter Wahrscheinlichkeitsraum}.
-Es gelten folgende Rechenregeln für diskrete Wahrscheinlichkeitsräume:
+
+\paragraph{Rechenregeln für diskrete Wahrscheinlichkeitsräume}\label{rules}
 \begin{itemize}
 	\item $\PP(\emptyset)=0$
 	\item $\PP(A^{\mathsf{C}})=1-\PP(A)$
