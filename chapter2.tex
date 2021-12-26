@@ -1,1 +1,40 @@
 \section{Bedingte Wahrscheinlichkeit und Unabhängigkeit}
+\paragraph{Definition: Bedingte Wahrscheinlichkeit}
+Für $(\Omega,\PP)$ diskreter Wahrscheinlichkeitsraum und $A,B\in\Omega$ mit $\PP(B)>0$ heißt
+\begin{tightcenter}
+	$\PP(A\mid B)\coloneqq\cfrac{\PP(A\cap B)}{\PP(B)}$
+\end{tightcenter}
+die \textbf{bedingte Wahrscheinlichkeit} von A gegeben B.
+
+\paragraph{Multiplikationsformel}
+Seien $A_1,\ldots,A_n\subseteq\Omega$ Ereignisse mit $\PP(A_1\cap\ldots\cap A_{n-1})>0$, dann gilt
+\begin{tightcenter}
+	$\PP(A_1\cap\ldots\cap A_{n-1})=\PP(A_1)\cdot\PP(A_2\mid A_1)\cdot\PP(A_3\mid A_1\cap A_2)\cdots\PP(A_n\mid A_1\cap\ldots\cap A_{n-1})$
+\end{tightcenter}
+Im Fall von n=2 gilt: $\PP(A\cap B)=\PP(B)\cdot\PP(A\mid B)$
+
+\paragraph{Satz von der totalen Wahrscheinlichkeit und Satz von Bayes}
+Sei $(\Omega,\PP)$ ein diskreter Wahrscheinlichkeitsraum, $I$ eine abzählbare Indexmenge, $B_i\subseteq\Omega, i\in I$, disjunkt mit $\PP(B_i)>0$ und $\bigcup\limits_{i\in I}B_i=\Omega$ und $A\subseteq\Omega$ beliebig.
+\begin{itemize}
+	\item Es gilt der \textbf{Satz von der totalen Wahrscheinlichkeit}:
+	\begin{tightcenter}
+		$\PP(A)=\sum\limits_{i\in I}\PP(A\mid B_i)\cdot\PP(B_i)$
+	\end{tightcenter}
+	\item Falls $\PP(A)>0$ und $k\in I$, dann gilt der \textbf{Satz von Bayes}:
+	\begin{tightcenter}
+		$\PP(B_k\mid A)=\cfrac{\PP(A\mid B_k)\cdot\PP(B_k)}{\PP(A)}=\cfrac{\PP(A\mid B_k)\cdot\PP(B_k)}{\sum\limits_{i\in I}\PP(A\mid B_i)\cdot\PP(B_i)}$
+	\end{tightcenter}
+\end{itemize}
+
+\paragraph{Definition: Stochastische Unabhängigkeit}
+Sei $(\Omega,\PP)$ ein diskreter Wahrscheinlichkeitsraum. Zwei Ereignisse $A,B\subseteq\Omega$ heißen \textbf{stochastisch unabhängig}, falls
+\begin{tightcenter}
+	$\PP(A\cap B)=\PP(A)\cdot\PP(B)$
+\end{tightcenter}
+\newpage
+Ereignisse $A_1,\ldots,A_n\subseteq\Omega$ heißen \textbf{stochastisch unabhängig}, wenn für \underline{jede} Indexmenge $I\subseteq\{1,\ldots,n\},I\neq\emptyset$, gilt
+\begin{tightcenter}
+	$\PP(\bigcap\limits_{i\in I}A_i)=\prod\limits_{i\in I}\PP(A_i)$
+\end{tightcenter}
+Achtung: Mehr als zwei Ereignisse $A_1,\ldots,A_n$ sind im Allgemeinen \underline{nicht} stochastisch unabhängig, wenn nur $\PP(\bigcap\limits_{i=1}^{n}A_i)=\prod\limits_{i=1}^{n}\PP(A_i)$ gilt!
+Gleiches gilt, wenn jeweils nur zwei der Ereignisse stochastisch unabhängig sind.

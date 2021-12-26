@@ -14,7 +14,7 @@ Ereignisse können durch Mengenoperationen logisch verknüpft werden:
 	\item $A\subseteq B$: Wenn A eintritt, dann tritt auch B ein
 \end{itemize}
 Jedem Ereignis kann durch die \textbf{relative Häufigkeit} eine Wahrscheinlichkeit zugeordnet werden. 
-Für $n$ Wiederholungen und Ergebnisse $\omega_1,\ldots,\omega_n\in\Omega$ gilt:\\
+Für $n$ Wiederholungen und Ergebnisse $\omega_1,\ldots,\omega_n\in\Omega$ gilt:
 \begin{tightcenter}
 	$\PP_n(A)\coloneqq\frac{1}{n}\sum\limits_{i=1}^{n} \mathds{1}_{\{\omega_i \in A\}}$
 \end{tightcenter}
@@ -57,7 +57,7 @@ werden kann!
 
 \paragraph{Definition: Zähldichte}
 Sei $(\Omega,\PP)$ ein diskreter Wahrscheinlichkeitsraum.
-Dann wird die Funktion\\
+Dann wird die Funktion
 \begin{tightcenter}
 	$f:\Omega\rightarrow[0,1], f(\omega)=\PP(\{\omega\})$
 \end{tightcenter}
@@ -71,15 +71,15 @@ Diese besitzt folgende Eigenschaften:
 Die Zähldichte ist eindeutig!
 
 \paragraph{Definition: Binomialverteilung}
-Das Wahrscheinlichkeitsmaß $\PP=Bin_{(n,p)}$ auf $\{0,\ldots,n\}$ mit der Zähldichte\\
+Das Wahrscheinlichkeitsmaß $\PP=Bin_{(n,p)}$ auf $\{0,\ldots,n\}$ mit der Zähldichte
 \begin{tightcenter}
 	$f(k)=\binom{n}{k}p^k\cdot(1-p)^{n-k}$ \qquad$\forall k\in\{0,\ldots,n\}$
 \end{tightcenter}
 heißt \textbf{Binomialverteilung} mit Parametern $n\in\N$ und $p\in[0,1]$.
 
 \paragraph{Definition: Geometrische Verteilung}
-Das Wahrscheinlichkeitsmaß $\PP=Geo_p$ auf $\N_0$ mit der Zähldichte\\
+Das Wahrscheinlichkeitsmaß $\PP=Geo_p$ auf $\N_0$ mit der Zähldichte
 \begin{tightcenter}
-	$f(k)=(1-p)^k\cdotp$ \qquad$\forall k\in\N_0$
+	$f(k)=(1-p)^k\cdot p$ \qquad$\forall k\in\N_0$
 \end{tightcenter}
 heißt \textbf{geometrische Verteilung} mit Parameter $p\in(0,1]$.
