@@ -1,0 +1,70 @@
+\section{Zufallsvariablen und ihre Verteilungen}
+\paragraph{Definition: $\boldsymbol{S}$-wertige Zufallsvariable}
+Ist $(\Omega,\PP)$ ein diskreter Wahrscheinlichkeitsraum und $S\neq\emptyset$ eine beliebige Menge, so wird die Abbildung $X:\Omega\rightarrow S$ $\boldsymbol{S}$\textbf{-wertige Zufallsvariable} genannt.
+
+\paragraph{Definition: Verteilung}
+Ist $X:\Omega\rightarrow S$ eine Zufallsvariable auf einem diskreten Wahrscheinlichkeitsraum $(\Omega,\PP)$, dann wird durch
+\begin{tightcenter}
+	$\PP^X(B)\coloneqq\PP(X^{-1}(B))$ \qquad$\forall B\subseteq S$
+\end{tightcenter}
+ein Wahrscheinlichkeitsmaß $\PP^X$ auf $S$ definiert, welches Verteilung von $X$ genannt wird.
+$(S,\PP^X)$ ist ein diskreter Wahrscheinlichkeitsraum.
+Notation für Urbilder:
+\begin{itemize}
+	\item $\{X\in B\}\coloneqq \{\omega\in\Omega\mid X(\omega)\in B\}=X^{-1}(B)$
+	\item $\{X=x\}\coloneqq \{\omega\in\Omega\mid X(\omega)=x\}=X^{-1}(\{x\})$
+	\item $\{X>x\}\coloneqq \{\omega\in\Omega\mid X(\omega)>x\}=X^{-1}((x,\infty))$
+\end{itemize}
+Zudem schreibt man $\PP(X\in B)\coloneqq \PP(\{X\in B\})$
+
+\paragraph{Definition: Stochastische Unabhängigkeit von Zufallsvariablen}
+Sei $(\Omega,\PP)$ ein diskreter Wahrscheinlichkeitsraum und $S_i,i\in\{1,\ldots,n\}$ nichtleere Zufallsvariablen.
+Zufallsvariablen $X_i:\Omega\rightarrow S_i, i\in\{1,\ldots,n\}$ heißen \textbf{stochastisch unabhängig}, wenn für beliebige $B_i\subseteq S_i$ die Ereignisse $\{X_1\in B_1\},\ldots,\{X_n\in B_n\}$ stochastisch unabhängig sind.
+
+Auch der Vektor $(X_1,\ldots,X_n):\Omega\rightarrow S_1\times\cdots\times S_n$ ist eine Zufallsvariable mit Verteilung $\PP^{(X_1,\ldots,X_n)}$ auf $S_1\times\cdots\times S_n$.
+
+Bemerkung zur Schreibweise: $(X_1\in B_1, X_2\in B_2) = (X_1\in B_1)\cap(X_2\in B_2)$
+
+\paragraph{Satz für stochastisch unabhängige Zufallsvariablen}
+Es sind äquivalent:
+\begin{itemize}
+	\item $X_1,\ldots,X_n$ sind stochastisch unabhängig
+	\item $\forall B_i \subseteq S_1: \PP(X_i\in B_i \;\forall 1\leq i\leq n)=\prod_{i=1}^{n}\PP(X_i\in B_i)$
+	\item Bezeichne mit $f_{X_i}$ die Zähldichte von $\PP^{X_1}$ auf $S_i$.
+	Dann hat die Zähldichte $f_{(X_1,\ldots,X_n)}$ von $\PP^{(X_1,\ldots,X_n)}$ die Form: $f_{(X_1,\ldots,X_n)}(t_1,\ldots,t_n)=\prod\limits_{i=1}^{n}f_{X_i}(t_i)$ \qquad$\forall t_i\in S_i$
+\end{itemize}
+
+\paragraph{Definition: Hypergeometrischen Verteilung}
+Das Wahrscheinlichkeitsmaß $\PP =Hyp_{(N,M,n)}$ auf $\N_0$ gegeben durch die Zähldichte
+\begin{tightcenter}
+	$\PP^X(\{m\})=\PP(X=m)=\cfrac{\binom{M}{m}\cdot\binom{N-M}{n-m}}{\binom{N}{n}}\mathds{1}_S(m)$ \qquad$\forall m\in\N_0$
+\end{tightcenter}
+heißt \textbf{hypergeometrische Verteilung}.
+
+\paragraph{Zusammenhang hypergeometrische Verteilung und Binomialverteilung}
+\begin{itemize}
+	\item Die \textbf{hypergeometrische Verteilung} $Hyp_{(N,M,n)}$ beschreibt die Anzahl der markierten Gegenstände bei $n$-maligem \textbf{Ziehen ohne Zurücklegen} aus $N$ Gegenständen, von denen $M$ markiert sind
+	\item Die \textbf{Binomialverteilung} $Bin_{(n,M/N)}$ beschreibt die Anzahl der markierten Gegenstände bei $n$-maligem \textbf{Ziehen mit Zurücklegen} aus $N$ Gegenständen, von denen $M$ markiert sind
+\end{itemize}
+Falls $n\ll N$, dann ist Ziehen mit oder ohne Zurücklegen fast identisch und daher $Hyp_{(N,M,n)}(\{m\})\approx Bin_{(n,\frac{M}{N})}(\{m\})$ \qquad$\forall 0\leq m\leq n$
+
+\paragraph{Poisson'scher Grenzwertsatz}
+Für eine große Anzahl an Experimenten $n$ und eine kleine Erfolgswahrscheinlichkeit $p$ kann $Bin_{(n,p)}$ durch eine strukturell einfachere Verteilung approximiert werden:
+\begin{tightcenter}
+	$\lim\limits_{n\rightarrow\infty}Bin_{(n,p)}(\{k\})=\lim\limits_{n\rightarrow\infty}\binom{n}{k}p_n^k(1-p_n)^{n-k}=e^{-\lambda}\cdot\frac{\lambda^k}{k!}\eqqcolon Poiss_\lambda(\{k\})$ \qquad$k\in\N_0$
+\end{tightcenter}
+Das Wahrscheinlichkeitsmaß $Poiss_\lambda$ heißt Poissonverteilung mit Parameter $\lambda$.
+
+\paragraph{Definition: Faltung}
+Sind $X,Y$ $\R$-wertige Zufallsvariablen auf einem diskreten Wahrscheinlichkeitsraum mit Zähldichten $f_X$ von $\PP^X$ und $f_Y$ von $\PP^Y$, dann heißt
+\begin{tightcenter}
+	$(f_X*f_Y)(z)=\sum\limits_{x\in\R:f_X(x)>0}f_X(x)\cdot f_Y(z-x)$ \qquad$\forall z\in\R$
+\end{tightcenter}
+die \textbf{Faltung} von $f_X$ und $f_Y$.
+Hierbei ist $f_X*f_Y$ wieder eine Zähldichte mit Träger $\Omega_T\coloneqq\{z\in\R\mid\exists x,y\in\R:z=x+y,f_X(x)>0, f_Y(y)>0\}$ und die zugehörige diskrete Verteilung $\PP^X*\PP^Y$ heißt \textbf{Faltung} von $\PP^X$ und $\PP^Y$.
+
+\paragraph{Satz für die Faltung}
+Sind $X,Y$ \underline{unabhängige} $\R$-wertige Zufallsvariablen auf einem diskreten Wahrscheinlichkeitsraum, so gilt
+\begin{tightcenter}
+	$\PP^X*\PP^Y=\PP^{X+Y}$
+\end{tightcenter}
