@@ -28,7 +28,7 @@ Eine Abbildung $\PP:\AG\rightarrow[0,1]$ heißt Wahrscheinlichkeitsmaß auf $(\O
 	\item $\PP(\Omega)=1$
 	\item $A_n\in\AG,n\in\N$, disjunkt $\implies\PP(\bigcup\limits_{n\in\N}A_n)=\sum\limits_{n\in\N}\PP(A_n)$ \qquad($\sigma$-Additivität)
 \end{itemize}
-($\Omega,\AG\PP$) heißt dann \textbf{Wahrscheinlichkeitsraum}.
+($\Omega,\AG,\PP$) heißt dann \textbf{Wahrscheinlichkeitsraum}.
 
 \newpage
 \paragraph{Sätze und Definitionen für allgemeine Wahrscheinlichkeitsräume}
@@ -99,8 +99,10 @@ Für die Verteilungsfunktion der Normalverteilung $N_{(\mu,\sigma^2)}$ gilt
 \begin{tightcenter}
 	$F(x)=\Phi(\frac{x-\mu}{\sigma})$
 \end{tightcenter}
-Um Wahrscheinlichkeiten für eine beliebige Normalverteilung zu berechnen, genügt also die Verteilungsfunktion $\Phi$ der Standardnormalverteilung:\\\\
-\includegraphics[width=\textwidth]{images/image2.png}
+Um Wahrscheinlichkeiten für eine beliebige Normalverteilung zu berechnen, genügt also die Verteilungsfunktion $\Phi$ der Standardnormalverteilung:
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{images/image2.png}
+\end{center}
 
 \paragraph{Definition: Zufallsvariable, Messbarkeit und Verteilung}
 Eine Zufallsvariable $X$ ist nur noch definiert, wenn das Urbild von $X$ eine \enquote{gutartige} Menge ist.
@@ -114,7 +116,6 @@ Die sogenannte \textbf{Verteilung} von $X$ unter $\PP$ wird durch das Wahrschein
 \end{tightcenter}
 auf $(S,\CG)$ definiert.
 
-\newpage
 \paragraph{Definition: Verteilungsfunktion und Dichte von Zufallsvariablen}
 Sei $X:(\Omega,\AG)\rightarrow(S,\CG)$ eine $\R$-wertige Zufallsvariable auf dem Wahrscheinlichkeitsraum $(\Omega,\AG,\PP)$.
 \begin{itemize}
@@ -128,4 +129,143 @@ Sei $X:(\Omega,\AG)\rightarrow(S,\CG)$ eine $\R$-wertige Zufallsvariable auf dem
 		$\PP(X\leq x)=\int_{-\infty}^{x}f_X(t)dt$ \qquad$\forall x\in\R$
 	\end{tightcenter}
 	$f_X$ heißt dann auch \textbf{Dichte} von $X$.
+\end{itemize}
+
+\paragraph{k$\pmb{\sigma}$-Regeln für die Normalverteilung}
+Für $X\sim N_{(\mu,\sigma^2)}$ und alle $t>0$ gilt
+\begin{tightcenter}
+	$\PP(|X-\mu|\leq\sigma t)=2\cdot\Phi(t)-1$
+\end{tightcenter}
+und insbesondere
+\[   
+\PP(|X-\mu|\leq k\sigma)=
+\begin{cases}
+	0,6827\;, k=1\\
+	0,9545\;, k=2\\
+	0,9973\;, k=3
+\end{cases}
+\]
+
+\paragraph{Definition: Borel-$\pmb{\sigma}$-Algebren auf $\pmb{\R^n}$}
+Borel-$\sigma$-Algebren, Verteilungsfunktion und Dichten kann man analog auch für $\Omega=\R^n$ definieren.
+Die \textbf{Borel-$\pmb{\sigma}$-Algebra} $\BG_{\R^n}$ auf $\R^n$ wird definiert als die kleinste $\sigma$-Algebra, die alle Rechteckmengen $\bigtimes\limits_{i=1}^{n}(a_i,b_i]$ mit $-\infty<a_i<b_i<\infty$ für alle $i\in\{1,\ldots,n\}$ enthält.
+
+\paragraph{Definition: Multivariate Verteilungsfunktion}
+Ist $\PP$ ein Wahrscheinlichkeitsmaß auf $(\R^n,\BG_{\R^n})$, so wird die zugehörige \textbf{multivariate Verteilungsfunktion} $F$ definiert durch
+\begin{tightcenter}
+	$F(x_1,\ldots,x_n)\coloneqq\PP(\bigtimes\limits_{i=1}^{n}(-\infty,x_i])$, \qquad$(x_1,\ldots,x_n)\in\R^n$
+\end{tightcenter}
+
+\paragraph{Definition: Dichten auf $\pmb{\R^n}$}
+Sei $\PP$ ein Wahrscheinlichkeitsmaß auf $(\R^n,\BG_{\R^n})$ mit multivariater Verteilungsfunktion $F$.
+Existiert eine Abbildung $f:\R^n\rightarrow[0,\infty)$, sodass für alle $(x_1,\ldots,x_n)\in\R^n$
+\begin{tightcenter}
+	$F(x_1,\ldots,x_n)=\int_{-\infty}^{x_1}\int_{-\infty}^{x_2}\cdots\int_{-\infty}^{x_n} f(t_1,\ldots,t_n)dt_n\ldots dt_2\,dt_1$
+\end{tightcenter}
+gilt, so heißt $f$ \textbf{Dichte} von $\PP$ bzw. von $F$.
+\newpage
+Es gilt dann $\forall B\in\BG_{\R^n}$
+\begin{tightcenter}
+	$\PP(B)=\int_{B}f(t)dt=\int_{-\infty}^{\infty}\cdots\int_{-\infty}^{\infty}\mathds{1}_B(t_1,\ldots,t_n)\cdot f(t_1,\ldots,t_n)dt_n\ldots dt_1$
+\end{tightcenter}
+Insbesondere gilt für jede Dichte $f$: $\int_{-\infty}^{\infty}\cdots\int_{-\infty}^{\infty}f(t_1,\ldots,t_n)dt_n\ldots dt_1=1$\\
+und für $B=(a_1,b_1]\times\cdots\times(a_n,b_n],a_i<b_i$: $\PP(B)=\int_{a_1}^{b_1}\cdots\int_{a_n}^{b_n}f(t_1,\ldots,t_n)dt_n\ldots dt_1$.
+
+\paragraph{Definition: Zufallsvektoren}
+Ist $(\Omega,\AG)$ ein messbarer Raum und $X_i:\Omega\rightarrow\R,\,1\leq i\leq n$, so gilt $\forall1\leq i\leq n$:
+\begin{tightcenter}
+	$X=(X_1,\ldots,X_n):\Omega\rightarrow\R^n\;(\AG,\BG_{\R^n})$-messbar $\iff X_i:\Omega\rightarrow\R\;(\AG,\BG_{\R^n})$-messbar
+\end{tightcenter}
+In dem Fall wird $X$ auch $n$-dimensionaler \textbf{Zufallsvektor} genannt.
+Die multivariate Verteilungsfunktion von $\PP^X$
+\begin{tightcenter}
+	$F_X(x_1,\ldots,x_n) \coloneqq\PP(X_1\leq x_1,X_2\leq x_2,\ldots,X_n\leq x_n)$
+\end{tightcenter}
+heißt \textbf{gemeinsame Verteilungsfunktion} von $X_1,\ldots,X_n$.
+Besitzt $F_X$ eine Dichte $f_X$, dann heißt $X$ \textbf{stetig verteilt} und $f_X$ heißt \textbf{gemeinsame Dichte} von $X_1,\ldots,X_n$.
+Es gilt dann $\PP^X(B)=\PP(X\in B)=\int_{B}f_X(t)dt$, \qquad$B\in\BG_{\R^n}$.
+
+\paragraph{Definition: Randverteilungen}
+Ist $X=(X_1,\ldots,X_n)$ ein Zufallsvektor auf $(\Omega,\AG,\PP)$, so heißen die Verteilungen $\PP^{X_i}$ \textbf{Randverteilungen/Marginalverteilungen}.
+Die Verteilungsfunktion $F_i$ von $\PP^{X_i}$ bzw. $X_i$ berechnet sich wie folgt:
+\begin{equation*}
+	\begin{split}
+		F_i(x) &= \PP(X_1<\infty,\ldots,X_{i-1}<\infty,X_i\leq x,X_{i+1}<\infty,\ldots,X_n<\infty) \\
+		&= F(\infty,\ldots,\infty,x,\infty,\ldots,\infty),
+	\end{split}
+\end{equation*}	
+wobei x an der $i$-ten Stelle steht.
+
+\paragraph{Satz über die Dichte einer Komponente eines Zufallsvektors}
+Besitzt die Zufallsvariable $X=(X_1,\ldots,X_n)$ eine gemeinsame Dichte $f:\R^n\rightarrow[0,\infty)$, so hat $X_i$ die Dichte $f_i:\R\rightarrow[0,\infty)$ mit
+\begin{tightcenter}
+	$f_i(x)=\int_{-\infty}^{\infty}\cdots\int_{-\infty}^{\infty}f(t_1,\ldots,t_{i-1},x,t_{i+1},\ldots,t_n)dt_n\cdots dt_{i+1}\,dt_{i-1}\cdots dt_1$
+\end{tightcenter}
+für alle $x\in\R$.
+
+\paragraph{Definition: Unabhängigkeit von Zufallsvariablen}
+Zufallsvariablen $X_1,\ldots,X_n:(\Omega,\AG)\rightarrow(\R,\BG_\R)$ heißen \textbf{stochastisch unabhängig}, wenn die Ereignisse $\{X_1\in B_1\},\ldots,\{X_n\in B_n\}$ für alle $B_1,\ldots,B_n\in\BG_\R$ stochastisch unabhängig sind.
+
+\paragraph{Satz für stochastisch unabhängige Zufallsvariablen}
+Für Zufallsvariablen $X_i:(\Omega,\AG)\rightarrow(\R,\BG_\R)$ mit Verteilungsfunktionen $F_{X_i}$ sind äquivalent:
+\begin{itemize}
+	\item $X_1,\ldots,X_n$ sind stochastisch unabhängig
+	\item $\PP(X_1\in B_1,\ldots,X_n\in B_n)=\prod\limits_{i=1}^{n}\PP(X_i\in B_i)$ \qquad$\forall B_1,\ldots,B_n\in\BG_\R$
+	\item  $\PP(X_1\leq x_1,\ldots,X_n\leq x_n)=\prod\limits_{i=1}^{n}\PP(X_i\leq x_i)=\prod\limits_{i=1}^{n}F_{X_i}(x_i)$ \qquad$\forall x_1,\ldots,x_n\in\R$
+\end{itemize}
+Zufallsvariablen sind also genau dann unabhängig, wenn die Verteilungsfunktion ihrer gemeinsamen Verteilung das Produkt ihrer Verteilungsfunktionen ist.
+
+\paragraph{Dichten unabhängiger Zufallsvariablen}
+Seien $X_i:\Omega\rightarrow\R$ für $i\in\{1,\ldots,n\}$ Zufallsvariablen auf einem Wahrscheinlichkeitsraum $(\Omega,\AG,\PP)$.
+Falls alle Randverteilungen $\PP^{X_i}$ jeweils eine Dichte $f_i$ besitzen, dann sind äquivalent:
+\begin{itemize}
+	\item $X_1,\ldots,X_n$ sind stochastisch unabhängig:
+	\item $\PP^{(X_1,\ldots,X_n)}$ besitzt eine Dichte $f$ gegeben durch $f(x_1,\ldots,x_n)\coloneqq\prod\limits_{i=1}^{n}f_i(x_i)$
+\end{itemize}
+
+\paragraph{Blockungslemma}
+Seien $X_{11},X_{12},\ldots,X_{1n_1},X_{21},\ldots,X_{2n_2},\ldots,X_{k1},\ldots,X_{kn_k}$ stochastisch unabhängige Zufallsvariablen und $g_1:\R^{n_1}\rightarrow\R,g_2:\R^{n_2}\rightarrow\R,\ldots,g_k:\R^{n_k}\rightarrow\R$ Funktionen.
+Dann sind auch die Zufallsvariablen\\
+\begin{tightcenter}
+	$Y_1\coloneqq g_1(X_{11}\ldots,X_{1n_1}),Y_2\coloneqq g_2(X_{21}\ldots,X_{2n_2}),\ldots,Y_k\coloneqq g_k(X_{k1}\ldots,X_{kn_k})$ 
+\end{tightcenter}
+stochastisch unabhängig.
+Funktionen von disjunkten Blöcken unabhängiger Zufallsvariablen sind also wieder unabhängig.
+
+\paragraph{Definition: Faltung für Verteilungen mit Dichten}
+\begin{itemize}
+	\item Sind $X,Y:(\Omega,\AG)\rightarrow(\R,\BG_\R)$ unabhängige Zufallsvariablen auf einem Wahrscheinlichkeitsraum $(\Omega,\AG,\PP)$ so wird die Verteilung $\PP^{X+Y}$ die \textbf{Faltung} von $\PP^X$ und $\PP^Y$ genannt.
+	Schreibe dafür: $\PP^X*\PP^Y$
+	\item Besitzt $X$ eine Dichte $f_X$ und $Y$ eine Dichte $f_Y$, so ist
+	\begin{tightcenter}
+		 $f_X*f_Y(z)=\int_{-\infty}^{\infty}f_X(x)f_Y(z-x)dx$, \qquad$z\in\R$
+	\end{tightcenter}
+	eine Dichte von $\PP^X*\PP^Y$, d.h. $f_{X+Y}=f_X*f_Y$
+\end{itemize}
+
+\paragraph{Definition: Gamma-Verteilung}
+Die Zufallsvariable $X$ hat eine \textbf{Gamma-Verteilung} mit Parametern $\alpha>0$ und $\beta>0$, falls $X$ die Dichte
+\begin{tightcenter}
+	$f(t)=\frac{\beta^\alpha}{\Gamma(\alpha)}t^{\alpha-1}e^{-\beta t}\mathds{1}_{(0,\infty)}(t)$, \qquad$t\in\R$
+\end{tightcenter}
+mit Gamma-Funktion $\Gamma(t)\coloneqq\int_{0}^{\infty}x^{t-1}e^{-x}dx,\;t>0$ besitzt.
+
+\paragraph{Additionsgesetze}
+\begin{center}
+	\includegraphics[width=0.3\textwidth]{images/image3.png}
+\end{center}
+\textbf{Beachte}: In jedem Fall sind $X$ und $Y$ als \underline{stochastisch unabhängig} vorausgesetzt.
+
+\paragraph{Verteilungsfunktion von Maximum und Minimum}
+Seien $X_1,\ldots,X_n$  stochastisch unabhängige Zufallsvariablen mit den Verteilungsfunktionen $F_{X_1},\ldots,F_{X_n}$.
+Dann gilt:
+\begin{itemize}
+	\item $U\coloneqq max(X_1,\ldots,X_n)$ besitzt die Verteilungsfunktion 
+	\begin{tightcenter}
+		$F_U(t)=\prod\limits_{j=1}^{n}F_{X_j}(t)$, \qquad $t\in\R$
+	\end{tightcenter}
+	\item $V\coloneqq min(X_1,\ldots,X_n)$ besitzt die Verteilungsfunktion 
+	\begin{tightcenter}
+		$F_V(t)=1-\prod\limits_{j=1}^{n}(1-F_{X_j}(t))$, \qquad $t\in\R$
+	\end{tightcenter}
 \end{itemize}
