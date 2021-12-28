@@ -104,6 +104,13 @@ Um Wahrscheinlichkeiten für eine beliebige Normalverteilung zu berechnen, genü
 	\includegraphics[width=0.8\textwidth]{images/image2.png}
 \end{center}
 
+\paragraph{Lineare Transformation der Normalverteilung}
+Sei $X$ eine Zufallsvariable mit $X\sim N_{(\mu,\sigma^2)}$, dann gilt für beliebige $m\in\R,s>0$:
+\begin{tightcenter}
+	$Y\coloneqq m+sX\sim N_{(m+s\mu,s^2\sigma^2)}$
+\end{tightcenter}
+Aus $X\sim N_{(\mu,\sigma^2)}$ folgt $\frac{X-\mu}{\sigma}\sim N_{(0,1)}$.
+
 \paragraph{Definition: Zufallsvariable, Messbarkeit und Verteilung}
 Eine Zufallsvariable $X$ ist nur noch definiert, wenn das Urbild von $X$ eine \enquote{gutartige} Menge ist.
 
@@ -163,8 +170,8 @@ Existiert eine Abbildung $f:\R^n\rightarrow[0,\infty)$, sodass für alle $(x_1,\
 	$F(x_1,\ldots,x_n)=\int_{-\infty}^{x_1}\int_{-\infty}^{x_2}\cdots\int_{-\infty}^{x_n} f(t_1,\ldots,t_n)dt_n\ldots dt_2\,dt_1$
 \end{tightcenter}
 gilt, so heißt $f$ \textbf{Dichte} von $\PP$ bzw. von $F$.
-\newpage
-Es gilt dann $\forall B\in\BG_{\R^n}$
+
+Es gilt dann $\forall B\in\BG_{\R^n}$:
 \begin{tightcenter}
 	$\PP(B)=\int_{B}f(t)dt=\int_{-\infty}^{\infty}\cdots\int_{-\infty}^{\infty}\mathds{1}_B(t_1,\ldots,t_n)\cdot f(t_1,\ldots,t_n)dt_n\ldots dt_1$
 \end{tightcenter}
@@ -222,7 +229,7 @@ Falls alle Randverteilungen $\PP^{X_i}$ jeweils eine Dichte $f_i$ besitzen, dann
 	\item $X_1,\ldots,X_n$ sind stochastisch unabhängig:
 	\item $\PP^{(X_1,\ldots,X_n)}$ besitzt eine Dichte $f$ gegeben durch $f(x_1,\ldots,x_n)\coloneqq\prod\limits_{i=1}^{n}f_i(x_i)$
 \end{itemize}
-
+\newpage
 \paragraph{Blockungslemma}
 Seien $X_{11},X_{12},\ldots,X_{1n_1},X_{21},\ldots,X_{2n_2},\ldots,X_{k1},\ldots,X_{kn_k}$ stochastisch unabhängige Zufallsvariablen und $g_1:\R^{n_1}\rightarrow\R,g_2:\R^{n_2}\rightarrow\R,\ldots,g_k:\R^{n_k}\rightarrow\R$ Funktionen.
 Dann sind auch die Zufallsvariablen
