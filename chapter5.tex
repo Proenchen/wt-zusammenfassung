@@ -1,0 +1,62 @@
+\section{Erwartungswerte und Momente von Zufallsvariablen}
+\paragraph{Definition: Erwartungswert auf einem diskreten Wahrscheinlichkeitsraum}
+Der \textbf{Erwartungswert} einer $\R$-wertigen Zufallsvariable $X:\Omega\rightarrow\R$ auf einem \underline{diskreten} Wahrscheinlichkeitsraum $(\Omega,\PP)$ ist definiert als:
+\begin{tightcenter}
+	$\E_\PP[X]\coloneqq\E[X]\coloneqq\sum\limits_{x\in X(\Omega)}x\cdot \PP(X=x)=\sum\limits_{x\in X(\Omega)}x\cdot\PP^X(\{x\})$
+\end{tightcenter}
+falls $\sum\limits_{x\in X(\Omega)}|x|\cdot\PP(X=x)<\infty$.
+$\E_\PP[X]$ heißt auch \textbf{Mittelwert} von $\PP^X$.
+
+\paragraph{Definition: Erwartungswert für stetige Zufallsvariablen}
+Der \textbf{Erwartungswert} einer stetigen Zufallsvariable $X$ mit Dichte $f_X$ wird definiert als:
+\begin{tightcenter}
+	$\E[X]=\int_{-\infty}^{\infty}x\cdot f_X(x)dx$
+\end{tightcenter}
+falls $\int_{-\infty}^{\infty}|x|\cdot f_X(x)dx<\infty$.
+$\E[X]$ heißt auch \textbf{Mittelwert} von $\PP^X$.
+
+\paragraph{Transformationssatz}
+Sei $(\Omega,\AG,\PP)$ ein Wahrscheinlichkeitsraum, $X:\Omega\rightarrow S$ eine diskrete/stetige Zufallsvariable mit (Zähl-)Dichte $f_X$ und $g:S\rightarrow\R$ eine Funktion.
+Die Zufallsvariable $g(X)=g\circ X$ beisitzt genau dann einen endlichen Erwartungswert bzgl. $\PP$, wenn $g$ einen endlichen Erwartungswert bzgl. $\PP^X$ besitzt.
+In diesem Fall gilt:
+\[   
+\E_\PP[g(X)]=\E_{\PP^X}[g]=
+\begin{cases}
+	\sum\limits_{x\in S}g(x)\cdot f_X(x) & \qquad\text{falls $X$ diskret}\\
+	\int_{-\infty}^{\infty}g(x)\cdot f_X(x)dx & \qquad\text{falls $X$ stetig}
+\end{cases}
+\]
+Der Transformationssatz gilt auch für Zufallsvektoren (s. Folie 150)
+
+\paragraph{Rechenregeln für Erwartungswerte}
+Seien $X,Y$ diskrete/stetige Zufallsvariablen auf einem Wahrscheinlichkeitsraum $(\Omega,\AG,\PP)$, die Erwartungswerte besitzen.
+Dann gilt:
+\begin{itemize}
+	\item $\E[aX+Y]=a\cdot\E[X]+\E[Y]$ für alle $a\in\R$ (\textbf{Linearität})
+	\item Gilt $X\leq Y$, dann folgt $\E[X]\leq\E[Y]$ (\textbf{Monotonie})
+	\item Wenn $f_X$ symmetrisch zu $x=a$ ist, dann gilt $\E[X]=a$
+\end{itemize}
+
+\paragraph{Siebformel von Sylvester-Poincar$\boldsymbol{\acute{e}}$}
+Seien $A_1,\ldots,A_n\in\AG$ Ereignisse im einem diskreten Wahrscheinlichkeitsraum $(\Omega,\AG,\PP)$.
+Dann gilt:
+\begin{tightcenter}
+	$\PP(\bigcup\limits_{i=1}^{n}A_i)=\sum\limits_{I\subseteq\{1,\ldots,n\}, I\neq\emptyset}(-1)^{|I|+1}\cdot\PP(\bigcap\limits_{i\in I}A_i)$
+\end{tightcenter}
+
+\paragraph{Darstellungsformel für nicht-negative Zufallsvariablen}
+Ist $X$ eine $\N_0$-wertige oder $\R_+$-wertige Zufallsvariable, so gilt
+\[   
+\E[X]=
+\begin{cases}
+	\sum\limits_{n=1}^{\infty}\PP(X\geq n) & \qquad\text{falls $X$ diskret}\\
+	\int_{0}^{\infty}\PP(X\geq x) & \qquad\text{falls $X$ stetig}
+\end{cases}
+\]
+
+\paragraph{Multiplikationsformel für Erwartungswerte}
+Sind $X$ und $Y$ stochastisch unabhängige reellwertige Zufallsvariablen mit Erwartungswerten $\E[X]$ und $\E[Y]$, so gilt
+\begin{tightcenter}
+	$\E[X\cdot Y]=\E[X]\cdot\E[Y]$
+\end{tightcenter}
+Die Umkehrung gilt im Allgemeinen nicht!

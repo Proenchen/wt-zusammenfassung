@@ -8,8 +8,8 @@ Wahrscheinlichkeiten kann man dann nur noch \enquote{gutartigen Mengen} zuordnen
 \end{itemize}
 Bezeichne nun mit $\AG\subseteq\PG(\Omega)$ das System aller \enquote{gutartigen} Mengen.
 
-\paragraph{Definition: $\pmb{\sigma}$-Algebra}
-Sei $\Omega\neq\emptyset$ ein beliebiger Grundraum. Eine Menge $\AG\subseteq\PG(\Omega)$ heißt $\pmb{\sigma}$\textbf{-Algebra} auf $\Omega$, falls:
+\paragraph{Definition: $\boldsymbol{\sigma}$-Algebra}
+Sei $\Omega\neq\emptyset$ ein beliebiger Grundraum. Eine Menge $\AG\subseteq\PG(\Omega)$ heißt $\boldsymbol{\sigma}$\textbf{-Algebra} auf $\Omega$, falls:
 \begin{itemize}
 	\item $\emptyset,\Omega\in\AG$
 	\item $A\in\AG\implies A^{\mathsf{C}}\in\AG$
@@ -18,8 +18,8 @@ Sei $\Omega\neq\emptyset$ ein beliebiger Grundraum. Eine Menge $\AG\subseteq\PG(
 $(\Omega,\AG)$ heißt dann \textbf{messbarer Raum}.
 Die Mengen $A\in\AG$ heißen \textbf{Ereignisse}.
 
-\paragraph{Definition: Borel-$\pmb{\sigma}$-Algebra}
-Die \textbf{Borel-$\pmb{\sigma}$-Algebra} $\BG$ auf $\R$ beschreibt die kleinste $\sigma$-Algebra, welche alle Intervalle $(a,b]$ für beliebige $a,b\in\R$ enthält.
+\paragraph{Definition: Borel-$\boldsymbol{\sigma}$-Algebra}
+Die \textbf{Borel-$\boldsymbol{\sigma}$-Algebra} $\BG$ auf $\R$ beschreibt die kleinste $\sigma$-Algebra, welche alle Intervalle $(a,b]$ für beliebige $a,b\in\R$ enthält.
 
 \paragraph{Definition: Wahrscheinlichkeitsmaß und Wahrscheinlichkeitsraum}
 Sei $(\Omega,\AG)$ ein Messraum mit Grundraum $\Omega\neq\emptyset$ und $\sigma$-Algebra $\AG$.
@@ -131,7 +131,7 @@ Sei $X:(\Omega,\AG)\rightarrow(S,\CG)$ eine $\R$-wertige Zufallsvariable auf dem
 	$f_X$ heißt dann auch \textbf{Dichte} von $X$.
 \end{itemize}
 
-\paragraph{k$\pmb{\sigma}$-Regeln für die Normalverteilung}
+\paragraph{k$\boldsymbol{\sigma}$-Regeln für die Normalverteilung}
 Für $X\sim N_{(\mu,\sigma^2)}$ und alle $t>0$ gilt
 \begin{tightcenter}
 	$\PP(|X-\mu|\leq\sigma t)=2\cdot\Phi(t)-1$
@@ -140,15 +140,15 @@ und insbesondere
 \[   
 \PP(|X-\mu|\leq k\sigma)=
 \begin{cases}
-	0,6827\;, k=1\\
-	0,9545\;, k=2\\
-	0,9973\;, k=3
+	0,6827\;, & k=1\\
+	0,9545\;, & k=2\\
+	0,9973\;, & k=3
 \end{cases}
 \]
 
-\paragraph{Definition: Borel-$\pmb{\sigma}$-Algebren auf $\pmb{\R^n}$}
+\paragraph{Definition: Borel-$\boldsymbol{\sigma}$-Algebren auf $\pmb{\R^n}$}
 Borel-$\sigma$-Algebren, Verteilungsfunktion und Dichten kann man analog auch für $\Omega=\R^n$ definieren.
-Die \textbf{Borel-$\pmb{\sigma}$-Algebra} $\BG_{\R^n}$ auf $\R^n$ wird definiert als die kleinste $\sigma$-Algebra, die alle Rechteckmengen $\bigtimes\limits_{i=1}^{n}(a_i,b_i]$ mit $-\infty<a_i<b_i<\infty$ für alle $i\in\{1,\ldots,n\}$ enthält.
+Die \textbf{Borel-$\boldsymbol{\sigma}$-Algebra} $\BG_{\R^n}$ auf $\R^n$ wird definiert als die kleinste $\sigma$-Algebra, die alle Rechteckmengen $\bigtimes\limits_{i=1}^{n}(a_i,b_i]$ mit $-\infty<a_i<b_i<\infty$ für alle $i\in\{1,\ldots,n\}$ enthält.
 
 \paragraph{Definition: Multivariate Verteilungsfunktion}
 Ist $\PP$ ein Wahrscheinlichkeitsmaß auf $(\R^n,\BG_{\R^n})$, so wird die zugehörige \textbf{multivariate Verteilungsfunktion} $F$ definiert durch
@@ -225,7 +225,7 @@ Falls alle Randverteilungen $\PP^{X_i}$ jeweils eine Dichte $f_i$ besitzen, dann
 
 \paragraph{Blockungslemma}
 Seien $X_{11},X_{12},\ldots,X_{1n_1},X_{21},\ldots,X_{2n_2},\ldots,X_{k1},\ldots,X_{kn_k}$ stochastisch unabhängige Zufallsvariablen und $g_1:\R^{n_1}\rightarrow\R,g_2:\R^{n_2}\rightarrow\R,\ldots,g_k:\R^{n_k}\rightarrow\R$ Funktionen.
-Dann sind auch die Zufallsvariablen\\
+Dann sind auch die Zufallsvariablen
 \begin{tightcenter}
 	$Y_1\coloneqq g_1(X_{11}\ldots,X_{1n_1}),Y_2\coloneqq g_2(X_{21}\ldots,X_{2n_2}),\ldots,Y_k\coloneqq g_k(X_{k1}\ldots,X_{kn_k})$ 
 \end{tightcenter}
