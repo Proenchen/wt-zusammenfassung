@@ -60,3 +60,65 @@ Sind $X$ und $Y$ stochastisch unabhängige reellwertige Zufallsvariablen mit Erw
 	$\E[X\cdot Y]=\E[X]\cdot\E[Y]$
 \end{tightcenter}
 Die Umkehrung gilt im Allgemeinen nicht!
+
+\paragraph{Definition: Variation, Standardabweichung und Momente}
+\begin{itemize}
+	\item Existieren $\E[X]$ und $\E[X^2]$ so ist die \textbf{Varianz} von $X$ durch
+	\[   
+	Var(X)= \E[(X-\E[X])^2]=
+	\begin{cases}
+		\sum\limits_{x\in X(\Omega)}(x-\E[X])^2f_X(x) & \qquad\text{falls $X$ diskret}\\
+		\int_{-\infty}^{\infty}(x-\E[X])^2f_X(x)dx & \qquad\text{falls $X$ stetig}
+	\end{cases}
+	\]
+	definiert.
+	$\sqrt{Var(X)}$ heißt \textbf{Standardabweichung} von $X$.
+	\item Für $k\in\N$ heißt $\E[X^k]$ das $\boldsymbol{k}$\textbf{-te Moment von} $X$.
+	Dabei ist $X^k:\Omega\rightarrow\R$ definiert durch $X^k(\omega)=(X(\omega))^k$
+\end{itemize}
+
+\newpage
+\paragraph{Eigenschaften der Varianz}
+\begin{itemize}
+	\item $Var(a\cdot X+b)=a^2\cdot Var(X)$ für alle $a,b\in\R$. Die Varianz ist nicht linear!
+	\item $Var(X)=\E[X^2]-\E[X]^2$, also $\E[X]^2\leq \E[X^2]$, da $0\leq Var(X)$
+	\item $\E[(X-a)^2]=Var(X)+(\E[X]-a)^2$ für alle $a\in\R$
+	\item Die Minimalstelle der Funktion $a\mapsto\E[(X-a)^2]$ ist $a=\E[X]$
+\end{itemize}
+
+\paragraph{Wichtige Beispiele}
+\begin{itemize}
+	\item Wenn $X\sim Ber_p$ mit $p\in [0,1]$, dann gilt $\E[X]=p$ und $Var(X)=p(1-p)$
+	\item Wenn $X\sim Poiss_\lambda$, dann gilt $\E[X^2]=\lambda^2+\lambda$ und $Var(X)=\lambda$
+	\item Wenn $X\sim U([a,b])$ gleichverteilt, dann gilt $\E[X^2]=\frac{b^2+ab+a^2}{3}$ und $Var(X)=\frac{(b-a)^2}{12}$
+	\item Wenn $Y\sim N_{(0,1)}$, dann gilt $\E[Y]=0$ und $Var(Y)=1$ sowie wegen\\ $X\coloneqq\sigma Y+\mu\sim N_{(0,1)}$ folgt $Var(X)=\sigma^2$
+\end{itemize}
+
+\paragraph{Markov- und Chebyshev-Ungleichung}
+\begin{itemize}
+	\item \textbf{Markov-Ungleichung:} $\PP(|X|\geq c)\leq\cfrac{\E[|X|]}{c}$ \qquad$\forall c>0$
+	\item \textbf{Chebyshev-Ungleichung:} $\PP(|X-\E[X]|\geq c)\leq\cfrac{Var(X)}{c^2}$ \qquad$\forall c>0$
+\end{itemize}
+
+\paragraph{Definition: Kovarianz und Korrelation}
+Seien $X$ und $Y$ Zufallsvariablen.
+\begin{tightcenter}
+	$Cov(X,Y)=\E[(X-\E[X])\cdot(Y-\E[Y])]=\E[XY]-\E[X]\cdot\E[Y]$
+\end{tightcenter}
+heißt die \textbf{Kovarianz} von $X$ und $Y$.
+\begin{tightcenter}
+	$Corr(X,Y)=\cfrac{Cov(X,Y)}{\sqrt{Var(X)\cdot Var(Y)}}$
+\end{tightcenter}
+heißt \textbf{Korrelation} von $X$ und $Y$, falls $Var(X)>0$ und $Var(Y)>0$.
+$X$ und $Y$ heißen \textbf{unkorreliert}, falls $Cov(X,Y)=0$.\\
+Die Kovarianz ist bilinear, d.h. $Cov(aX+b,cY+d)=ac\cdot Cov(X,Y)$.\\
+Ist $Z$ eine weitere Zufallsvariable, so gilt $Cov(X,Y+Z)=Cov(X,Y)+Cov(X,Z)$.
+Jede unabhängige Zufallsvariable ist unkorreliert, umgekehrt aber nicht!
+
+\paragraph{Varianz von Summen von Zufallsvariablen}
+Für Zufallsvariablen $X_1\cdot X_n$ gilt:
+\begin{tightcenter}
+	$Var(\sum\limits_{i=1}^{n}X_i)=\sum\limits_{i=1}^{n}Var(X_i)+2\sum\limits_{1\leq i<j\leq n}Cov(X_i,X_j)$
+\end{tightcenter}
+Sind die Variablen unabhängig, so gilt insbesondere: $Var(\sum\limits_{i=1}^{n}X_i)=\sum\limits_{i=1}^{n}Var(X_i)$
+
