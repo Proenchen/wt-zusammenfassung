@@ -1,0 +1,43 @@
+\section{Grenzwertsätze}
+Oft betrachtet man Summen von $n$ Zufallsvariablen von der Art $\sum\limits_{i=1}^{n}X_i$ für $n\rightarrow\infty$, die in der Regel nicht exakt berechenbar ist.
+Ziel: Finde eine gute Approximation dafür.
+
+\paragraph{Schwaches Gesetz der großen Zahlen}
+Seien $X_i$ unkorrelierte Zufallsvariablen mit Erwartungswert $\E[X_i]$ und es existiere $M$, sodass $Var(X_i)\leq M<\infty$ für alle $i\in\N$.
+Dann gilt für alle $\varepsilon>0$:
+\begin{tightcenter}
+	$\PP(\cfrac{1}{n}\;|\sum\limits_{i=1}^{n}(X_i-\E[X_i])|\geq\varepsilon)\leq\cfrac{M}{n\varepsilon^2}\rightarrow0$ \qquad für $n\rightarrow\infty$
+\end{tightcenter}
+
+\paragraph{Definition: Stochastische Konvergenz}
+Seien $Y,Y_n$ $\R$-wertige Zufallsvariablen.
+$Y_n$\textbf{konvergiert stochastisch} gegen $Y$, falls
+\begin{tightcenter} 
+	$\forall\varepsilon>0:\qquad\PP(|Y_n-Y|\geq\varepsilon)\rightarrow0\quad(n\rightarrow\infty)$
+\end{tightcenter}
+Wir schreiben dafür $Y_n\xrightarrow{\PP}Y$.
+
+\paragraph{Asymptotische Verteilung}
+Für identische, unabhängige Zufallsvariablen $(X_i)_{i\geq1}$ mit $\E[X_i]=\mu$ und $\sigma^2\coloneqq Var(X_i)$ liefert das Gesetz der großen Zahlen den Grenzwert für die Partialsummen:
+\begin{tightcenter}
+	 $\cfrac{1}{n}\;\sum\limits_{i=1}^{n}X_i\xrightarrow{\PP}\mu\quad (n\rightarrow\infty)$.
+\end{tightcenter}
+Wie verhält sich die Verteilung von $\sum\limits_{i=1}^{n}X_i$ für $n\rightarrow\infty$? Es gilt:
+\begin{tightcenter}
+	$\E[\sum\limits_{i=1}^{n}X_i]=n\mu$ und $Var(\sum\limits_{i=1}^{n}X_i)=n\sigma^2$
+\end{tightcenter}
+Wir standardisieren nun mit $S_n\coloneqq\cfrac{1}{\sqrt{n\sigma^2}}\;\sum\limits_{i=1}^{n}(X_i-\mu)$, sodass $\E[S_n]=0$ und $Var(S_n)=1$ für alle $n\in\N$. 
+Das führt zum zentralen Grenzwertsatz.
+
+\paragraph{Zentraler Grenzwertsatz}
+Seien $X_i$ identisch und unabhängig verteilte Zufallsvariablen, d.h. $\PP^{X_i}=\PP{X_1}$ mit $\E[X_i]=\mu$ und $\sigma^2\coloneqq Var(X_i)$. Dann gilt für alle $x\in\R$:
+\begin{tightcenter}
+	$\PP(\cfrac{1}{\sqrt{n\sigma^2}}\;\sum\limits_{i=1}^{n}(X_i-\mu)\leq x)\xrightarrow{n\rightarrow\infty}\Phi(x)$,
+\end{tightcenter}
+wobei $\Phi$ die Standardnormalverteilung ist.
+
+\paragraph{Zentraler Grenzwertsatz von Moivre-Laplace}
+Ist $Y_n$ eine $Bin_{(n,p)}$-verteilte Zufallsvariable mit $p\in(0,1)$ so gilt:
+\begin{tightcenter}
+	$\PP(a<\cfrac{Y_n-np}{\sqrt{np\cdot(a-p)}}\leq b)\xrightarrow{n\rightarrow\infty}\Phi(b)-\Phi(a)$,
+\end{tightcenter}

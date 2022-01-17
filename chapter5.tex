@@ -26,7 +26,14 @@ In diesem Fall gilt:
 	\int_{-\infty}^{\infty}g(x)\cdot f_X(x)dx & \qquad\text{falls $X$ stetig}
 \end{cases}
 \]
-Der Transformationssatz gilt auch für Zufallsvektoren (s. Folie 150)
+Der Transformationssatz gilt auch für Zufallsvariablen $X,Y$ mit gemeinsamer Zähldichte $f_{X,Y}$, d.h.
+\[   
+\E[g(X,Y)]=
+\begin{cases}
+	\sum\limits_{x\in X(\Omega)}\sum\limits_{y\in Y(\Omega}g(x,y)\cdot f_{X,Y}(x,y) & \qquad\text{falls $X,Y$ diskret}\\
+	\int_{-\infty}^{\infty}(\int_{-\infty}^{\infty}g(x,y)\cdot f_{X,Y}(x,y)dy)dx & \qquad\text{falls $X$ stetig}
+\end{cases}
+\]
 
 \paragraph{Rechenregeln für Erwartungswerte}
 Seien $X,Y$ diskrete/stetige Zufallsvariablen auf einem Wahrscheinlichkeitsraum $(\Omega,\AG,\PP)$, die Erwartungswerte besitzen.
@@ -120,5 +127,25 @@ Für Zufallsvariablen $X_1\cdot X_n$ gilt:
 \begin{tightcenter}
 	$Var(\sum\limits_{i=1}^{n}X_i)=\sum\limits_{i=1}^{n}Var(X_i)+2\sum\limits_{1\leq i<j\leq n}Cov(X_i,X_j)$
 \end{tightcenter}
-Sind die Variablen unabhängig, so gilt insbesondere: $Var(\sum\limits_{i=1}^{n}X_i)=\sum\limits_{i=1}^{n}Var(X_i)$
+Sind die Variablen unabhängig (oder schwächer: unkorreliert), so gilt insbesondere:
+\begin{tightcenter} 
+	$Var(\sum\limits_{i=1}^{n}X_i)=\sum\limits_{i=1}^{n}Var(X_i)$
+\end{tightcenter}
 
+\paragraph{Definition: Median einer Zufallsvariable}
+Neben dem Erwartungswert gibt es eitere Parameter, die \enquote{mittlere Werte} einer Zufallsvariable beschreiben.
+Eine Zahl $m(X)$ heißt \textbf{Median} von $X$ bzw. $\PP^X$, falls gilt:
+\begin{tightcenter}
+	$\PP(X\leq m(X))\geq\frac{1}{2}$ und $\PP(X\geq m(X))\geq\frac{1}{2}$
+\end{tightcenter}
+Mediane sind im Allgemeinen nicht eindeutig. 
+Der Median ist ein \textbf{Lageparameter}, d.h. es gilt: $m$ ist Median von $X\iff am+b$ ist Median von $aX+b$.
+
+\paragraph{Definition: Quantil}
+Ein Quantil ist eine Verallgemeinerung des Medians.
+Für $X$ mit Verteilungsfunktion $F_X$ und $0<p<1$ heißt
+\begin{tightcenter}
+	$t_p\coloneqq t_p(X)\coloneqq F_{X}^{-1}(p)\coloneqq inf{x\in\R:F_X(x)\geq p}$
+\end{tightcenter}
+$\boldsymbol{p}$\textbf{-Quantil} von $F_X$ bzw. $X$. 
+$t_{1/2}$ heißt Median, $t_{1/4}$ \textbf{unteres Quartil} und $t_{3/4}$ \textbf{oberes Quartil}.
