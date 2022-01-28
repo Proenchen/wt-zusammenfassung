@@ -4,3 +4,88 @@
 	\item Beschreibende (deskriptive) Statistik: Aussagen werden auf den betrachteten Daten getroffen
 	\item Beurteilende (schließende, induktive) Statistik: Aus vorliegenden Daten werden Rückschlüsse auf allgemeine Gültigkeit getroffen.  
 \end{itemize}
+\paragraph{Definition: Stichprobe}
+Sei $\XG$ die Menge aller Beobachtungen in einem Zufallsexperiment.
+Bezeichne mit $x_i\in\XG$ das $i$-te Ergebnis, dann heißt $x\coloneqq(x_1,\ldots,x_n)$ \textbf{Stichprobe} vom Umfang $n\in\N$.
+$\XG$ heißt \textbf{Stichprobenraum}.
+
+\paragraph{Absolute und relative Häufigkeit}
+Für $a\in\XG$ und eine Stichprobe $x$ ist die \textbf{absolute} bzw. \textbf{relative Häufigkeit} von $a$ in $x$ definiert durch
+\begin{tightcenter}
+	$H_x(a)\coloneqq\sum\limits_{i=1}^{n}\mathds{1}_{\{x_i=a\}}\qquad$ bzw. $\qquad h_x(a)\coloneqq\cfrac{H_x(a)}{n}$
+\end{tightcenter}
+
+\paragraph{Definition: Merkmal}
+Die bei einem stochastischen Vorgang beobachtbaren Größen heißen \textbf{Merkmale}.
+Werte, die von Merkmalen angenommen werden können, heißen \textbf{Merkmalsausprägungen}.
+
+\paragraph{Definition: Empirische Verteilungsfunktion}
+Die Funktion
+\begin{tightcenter}
+	$F_n:\R\rightarrow[0,1], \qquad t\mapsto F_n(t)\coloneqq\frac{1}{n}\sum\limits_{i=1}^{n}\mathds{1}_{\{x_i\leq t\}}$
+\end{tightcenter}
+heißt \textbf{empirische Verteilungsfunktion} von $x=(x_1,\ldots,x_n)$.
+Für ein diskretes Merkmal gilt $F_n(t)=\sum_{a\leq t}h_x(a)$.
+
+\newpage
+\paragraph{Definition: Histogramm}
+Das \textbf{Histogramm} ist definiert durch
+\begin{tightcenter}
+	$\hat{f}_n^{hist}\coloneqq\sum\limits_{k=1}^{K}d_k\mathds{1}_{(a_k,a_{k+1}]}(y)$,\qquad wobei
+	\begin{itemize}
+		\item $d_k\coloneqq\cfrac{n_k}{a_{k+1}-a_k}$ (Gewichtung nach Größe der Klasse)
+		\item $n_k\coloneqq\frac{1}{n}\sum\limits_{i=1}^{n}\mathds{1}_{\{a_k<x_i\leq a_{k+1}\}}$ (Relative Häufigkeit der Klasse)
+	\end{itemize}
+\end{tightcenter}
+
+\paragraph{Kenngrößen}
+\begin{itemize}
+	\item $\bar{x}\coloneqq\frac{1}{n}\sum\limits_{i=1}^{n}x_i$ \qquad(\textbf{Stichproben-Mittel})
+	\item $s_x^2\coloneqq\frac{1}{n-1}\sum\limits_{i=1}^{n}(x_i-\bar{x})^2$ \qquad(\textbf{Stichproben-Varianz})
+	\item $s_x\coloneqq\sqrt{s_x^2}$ \qquad(\textbf{Stichprobenstandardabweichung})
+	\item $v_x\coloneqq\cfrac{s_x}{\bar{x}}$ \qquad(\textbf{Stichprobenvariationskoeffizient})
+	\item Sei $x_{()}\coloneqq(x_{(1)},\ldots,x_{(n)})$ eine aufsteigend sortierte Stichprobe.
+	\[   
+	\tilde{x}\coloneqq
+	\begin{cases}
+		x_{(\frac{n+1}{2})} & \qquad\text{falls n ungerade}\\
+		\frac{1}{2}\cdot(x_{(\frac{n}{2})}+x_{(\frac{n}{2}+1)}) & \qquad\text{falls n gerade}
+	\end{cases}
+	\]
+	heißt \textbf{Stichprobenmedian}.
+	\item Für $p\in(0,1)$ und $k\coloneqq\lfloor n\cdot p\rfloor$ heißt
+	\[   
+	\tilde{x}_p\coloneqq
+	\begin{cases}
+		x_{(k+1)} & \qquad\text{falls }n\cdot p\notin\N\\
+		\frac{1}{2}\cdot(x_{(k)}+x_{(k+1)}) & \qquad\text{sonst}
+	\end{cases}
+	\]
+	das \textbf{Stichproben-$\boldsymbol{p}$-Quantil}.
+	\item Für $\alpha\in[0,0.5)$ und $k\coloneqq\lfloor n\cdot \alpha\rfloor$ ist $\bar{x}_\alpha\coloneqq\frac{1}{n-2\cdot k}\cdot(x_{(k+1)}+\ldots+x_{(n-k)})$ das \textbf{$\boldsymbol{\alpha}$-getrimmte Stichprobenmittel}.
+\end{itemize}
+
+\paragraph{Beschreibung zweidimensionaler Daten}
+Ein \textbf{(parametrisches) Regressionsmodell} versucht die Beobachtungen mit einer Regressionsfunktion $f_\beta$ für ein geeignetes $\beta\in\R^p$ möglichst gut zu beschreiben, d.h. $y_i\approx f_\beta(x_i)$ für alle $i=1,\ldots,n$.
+
+\paragraph{Einfache lineare Regression}
+Die \textbf{Regressionsgerade} $y=a^*+b^*x$ ist bestimmt durch $a^*,b^*$ als Lösung von\\
+$\min\limits_{a,b\in\R}\sum\limits_{i=1}^{n}(y_i-a-bx_i)^2$ (\textbf{Kleinste-Quadrate-Methode}).
+Lösung ist gegeben durch
+\begin{tightcenter}
+	$b^*=\cfrac{\sum\limits_{j=1}^{n}(x_j-\bar{x})(y_i-\bar{y})}{\sum\limits_{j=1}^{n}(x_j-\bar{x})^2}$ \qquad und\qquad
+	$a^*=\bar{y}-b^*\bar{x}$
+\end{tightcenter}
+Der \textbf{(empirische) (Pearson-) Korrelationskoeffizient} von $(x_1,y_1),\ldots,(x_n,y_n)$ ist gegeben durch
+\begin{tightcenter}
+	$r_{xy}=\cfrac{\frac{1}{n-1}\sum\limits_{j=1}^{n}(x_j-\bar{x})(y_i-\bar{y})}{s_xs_y}$
+\end{tightcenter}
+wobei $s_k$ die Stichprobenstandardabweichung von $k$ ist.
+Damit gilt $b^*=r_{xy}\frac{s_y}{s_x}$.
+
+\paragraph{Eigenschaften von $\boldsymbol{r_{xy}}$}
+\begin{itemize}
+	\item Es gilt $-1\leq r_{xy}\leq 1$
+	\item Je nachdem ob $r_{xy}$ positiv oder negativ ist, liegt ein ansteigender oder fallender linearer Trend vor
+	\item Bei linearen Datentransformationen der Form $\tilde{x}=a\cdot x_j+b$, $\tilde{y}=c\cdot y_j+d$ ändert sich $r_{xy}$ nicht, d.h. $r_{\tilde{x}\tilde{y}}=r_{xy}$
+\end{itemize}
