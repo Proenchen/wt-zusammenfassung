@@ -41,7 +41,7 @@ Das \textbf{Histogramm} ist definiert durch
 \paragraph{Kenngrößen}
 \begin{itemize}
 	\item $\bar{x}\coloneqq\frac{1}{n}\sum\limits_{i=1}^{n}x_i$ \qquad(\textbf{Stichproben-Mittel})
-	\item $s_x^2\coloneqq\frac{1}{n-1}\sum\limits_{i=1}^{n}(x_i-\bar{x})^2$ \qquad(\textbf{Stichproben-Varianz})
+	\item $s_x^2\coloneqq\frac{1}{n-1}\sum\limits_{i=1}^{n}(x_i-\bar{x})^2=\frac{1}{n-1}(\sum\limits_{i=1}^{n}x_i^2-n\cdot\bar{x}^2)$ \qquad(\textbf{Stichproben-Varianz})
 	\item $s_x\coloneqq\sqrt{s_x^2}$ \qquad(\textbf{Stichprobenstandardabweichung})
 	\item $v_x\coloneqq\cfrac{s_x}{\bar{x}}$ \qquad(\textbf{Stichprobenvariationskoeffizient})
 	\item Sei $x_{()}\coloneqq(x_{(1)},\ldots,x_{(n)})$ eine aufsteigend sortierte Stichprobe.
@@ -62,6 +62,8 @@ Das \textbf{Histogramm} ist definiert durch
 	\end{cases}
 	\]
 	das \textbf{Stichproben-$\boldsymbol{p}$-Quantil}.
+	\item \textbf{Quartilsabstand}: $\tilde{x}_{0,75}-\tilde{x}_{0,25}$, \textbf{Stichprobenspannweite}: $x_{(n)}-x_{(1)}$,\\
+	\textbf{Mittlere absolute Abweichung}: $\frac{1}{n}\sum\limits_{i=1}^{n}|x_i-\bar{x}|$
 	\item Für $\alpha\in[0,0.5)$ und $k\coloneqq\lfloor n\cdot \alpha\rfloor$ ist $\bar{x}_\alpha\coloneqq\frac{1}{n-2\cdot k}\cdot(x_{(k+1)}+\ldots+x_{(n-k)})$ das \textbf{$\boldsymbol{\alpha}$-getrimmte Stichprobenmittel}.
 \end{itemize}
 
@@ -78,7 +80,8 @@ Lösung ist gegeben durch
 \end{tightcenter}
 Der \textbf{(empirische) (Pearson-) Korrelationskoeffizient} von $(x_1,y_1),\ldots,(x_n,y_n)$ ist gegeben durch
 \begin{tightcenter}
-	$r_{xy}=\cfrac{\frac{1}{n-1}\sum\limits_{j=1}^{n}(x_j-\bar{x})(y_i-\bar{y})}{s_xs_y}$
+	$r_{xy}=\cfrac{\frac{1}{n-1}\sum\limits_{j=1}^{n}(x_j-\bar{x})(y_j-\bar{y})}{s_xs_y}$
+	$=\cfrac{\frac{1}{n-1}(\sum\limits_{j=1}^{n}x_j\cdot y_j-n\cdot\bar{x}\bar{y})}{s_xs_y}$
 \end{tightcenter}
 wobei $s_k$ die Stichprobenstandardabweichung von $k$ ist.
 Damit gilt $b^*=r_{xy}\frac{s_y}{s_x}$.
