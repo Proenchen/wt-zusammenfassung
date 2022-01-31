@@ -4,6 +4,8 @@
 	\item Beschreibende (deskriptive) Statistik: Aussagen werden auf den betrachteten Daten getroffen
 	\item Beurteilende (schließende, induktive) Statistik: Aus vorliegenden Daten werden Rückschlüsse auf allgemeine Gültigkeit getroffen.  
 \end{itemize}
+
+\subsection{Deskriptive Statistik}
 \paragraph{Definition: Stichprobe}
 Sei $\XG$ die Menge aller Beobachtungen in einem Zufallsexperiment.
 Bezeichne mit $x_i\in\XG$ das $i$-te Ergebnis, dann heißt $x\coloneqq(x_1,\ldots,x_n)$ \textbf{Stichprobe} vom Umfang $n\in\N$.
@@ -92,3 +94,56 @@ Damit gilt $b^*=r_{xy}\frac{s_y}{s_x}$.
 	\item Je nachdem ob $r_{xy}$ positiv oder negativ ist, liegt ein ansteigender oder fallender linearer Trend vor
 	\item Bei linearen Datentransformationen der Form $\tilde{x}=a\cdot x_j+b$, $\tilde{y}=c\cdot y_j+d$ ändert sich $r_{xy}$ nicht, d.h. $r_{\tilde{x}\tilde{y}}=r_{xy}$
 \end{itemize}
+
+\subsection{Induktive Statistik}
+\paragraph{Definition: Statistisches Experiment}
+Ein messbarer Raum $(\XG,\FG)$ versehen mit einer Familie $(\PP_\vt)_{\vt\in\Theta}$ von Wahrscheinlichkeitsmaßen mit einer beliebigen \textbf{Parametermenge} $\Theta\neq\emptyset$ heißt \textbf{statistisches Experiment} oder \textbf{statistisches Modell}. 
+Zufallsvariablen auf $(\XG,\FG,(\PP_\vt)_{\vt\in\Theta})$ heißen \textbf{Beobachtung} oder \textbf{Statistik}.
+
+\paragraph{Definition: Unabhängige Stichprobe}
+Die Stichprobe $x=(x_1,x_2,\ldots,x_n)$ heißt als Realisierung eines Zufallsvektors\\ 
+$X=(X_1,X_2,\ldots,X_n)\in\XG$ \textbf{unabhängige Stichprobe}, wenn alle $X_i$ identisch und unabhängig verteilt sind.
+Hat diese Stichprobe eine Randverteilungsdichte $X_1\sim f_\vt$, so ist der Stichprobenvektor verteilt mit $f_\vt^n(x_1,\ldots,x_n)=\prod\limits_{i=1}^{n}f_i(x_i)$\\
+
+\underline{Bemerkung}: Kenngrößen wie $\E_\vt$ oder $Var_\vt$ von $\PP_\vt$ hängen von $\vt$ ab.
+
+Mit einer gegebenen Stichprobe sollen Aussagen über die zugrunde liegende Verteilung $\PP_\vt$ gemacht werden.
+Parameterschätzung, Hypothesentests und Konfidenzbereiche sind grundlegende Kategorien zur Untersuchung.
+
+\paragraph{Definition: Schätzer}
+Sei $(\XG,\FG,(\PP_\vt)_{\vt\in\Theta})$ ein statistisches Modell, $\rho:\Theta\rightarrow\R^d$ ein $d$-dimensionaler Parameter.
+Ein \textbf{Schätzer} ist eine Abbildung $\hat{\rho}:\XG\rightarrow\R^d$.
+Gilt $\E_\vt[\hat{\rho}]=\rho(\vt)$, so heißt $\hat{\rho}$ \textbf{unverzerrt} oder \textbf{erwartungstreu}.
+
+\paragraph{Definition: Verlust und Risiko}
+Eine Funktion $l:\Theta\times\R^d\rightarrow\R_+$ heißt \textbf{Verlustfunktion}, falls $l(\vt,\cdot)$ für alle $\vt\in\Theta$ messbar ist.
+Der erwartete Verlust $R(\vt,\hat{\rho})\coloneqq\E_\vt[l(\vt,\hat{\rho})]$ eines Schätzers $\hat{\rho}$ heißt \textbf{Risiko}.
+Besonders wichtig ist der \textbf{quadratische Verlust}: $l(\vt,r)=|r-\rho(\vt)|^2$.
+
+\paragraph{Bias-Varianz-Zerlegung}
+Sei $(\XG,\FG,(\PP_\vt)_{\vt\in\Theta})$ ein statistisches Modell und $\hat{\rho}:\XG\rightarrow\R^d$ ein Schätzer des Parameters $\rho(\vt)$ mit $\E_\vt[|\hat{\rho}|^2]<\infty$.
+Dann gilt für den quadratischen Verlust:
+\begin{tightcenter}
+	$\E_\vt[|\hat{\rho}-\rho(\vt)|^2]=Var_\vt(\hat{\rho})+|\E_\vt[\hat{\rho}]-\rho(\vt)|^2$
+\end{tightcenter}
+Der hintere Summand ist der \textbf{Bias}.
+
+\paragraph{Definitionen für asymptotische Eigenschaften von Schätzern}
+Seien $X_1,\ldots,X_n\sim\PP_\vt$ eine i.i.d Stichprobe.
+Dann heißt eine Folge von Schätzern $\hat{\rho}=\hat{\rho}(X_1,\ldots,X_n)$ für den abgeleiteten Parameter $\rho(\vt)\in\R$
+\begin{itemize}
+	\item \textbf{asymptotisch konsistent}, falls $\hat{\rho}_n\xrightarrow{\PP_\vt}\rho(\vt)$ für $n\rightarrow\infty$
+	\item \textbf{asymptotisch erwartungstreu}, falls $\E_\vt[\hat{\rho}_n]\rightarrow\rho(\vt)$ für $n\rightarrow\infty$
+	\item \textbf{asymptotisch normalverteilt}, falls $\E_\vt[|\hat{\rho}_n|^2]<\infty$ und
+	$\PP_\vt(\cfrac{\hat{\rho}_n-\E_\vt[\hat{\rho}_n]}{\sqrt{Var_\vt(\hat{\rho}_n)}}\leq t)\rightarrow\Phi(t)$ für $n\rightarrow\infty$ und alle $t\in\R$
+\end{itemize}
+
+Wir wollen im Folgenden Schätzer konstruieren.
+
+\paragraph{Empirische Maßzahlen}
+Schätze Maßzahlen durch deren empirisches Analogon einer unabh. Stichprobe:
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{images/image4.png}
+\end{center}
+Für diese Schätzmethode braucht man kein parametrisches Modell.
+
