@@ -147,3 +147,31 @@ Schätze Maßzahlen durch deren empirisches Analogon einer unabh. Stichprobe:
 \end{center}
 Für diese Schätzmethode braucht man kein parametrisches Modell.
 
+\paragraph{Erwartungstreue von empirischen Maßzahlen}
+Folgende Schätzer sind für eine unabhängige Stichprobe erwartungstreu:
+\begin{itemize}
+	\item $\overline{X}_n\coloneqq\frac{1}{n}\sum\limits_{j=1}^{n}X_j$ erwartungstreu für $\E_\vt[X_1]$
+	\item $\PP_n(B)\coloneqq\frac{1}{n}\sum\limits_{j=1}^{n}\{X_j\in B\}$ erwartungstreu für $\PP(X_1\in B)$ für jede Borelmenge $B\in\BG_\R$
+	\item $s_n^2(X_1,\ldots,X_n)\coloneqq\frac{1}{n-1}\sum\limits_{j=1}^{n}(X_j-\overline{X}_n)^2$ erwartungstreu für $Var_\vt(X_1)$
+\end{itemize}
+Mit dem zentralen Grenzwertsatz folgt die Konsistenz der obigen Werte.
+
+\paragraph{Momentenmethode}
+\begin{itemize}
+	\item Seien $X_1,\ldots,X_n$ i.i.d. verteilte Zufallsvariablen
+	\item Gegeben Verteilung versuche die Parameter zu schätzen
+	\item Bestimme die ersten $k$ Momente $m_k(\vt)\coloneqq\E_\vt[X_1^k]$
+	\item Schätze $m_k(\vt)$ durch das $k$-te Stichprobenmoment $\hat{m}_k(x)=\frac{1}{n}\sum\limits_{j=1}^{n}x_j^k$
+	\item \textbf{Momentenschätzer} ergibt sich durch Auflösen der Gleichungen $m_k(\vt)=\hat{m}_k(x)$
+\end{itemize}
+
+\paragraph{Definition: Maximum-Likelihood-Schätzer}
+\begin{itemize}
+	\item Für eine feste Stichprobe $x=(x_1,\ldots,x_n)$ heißt $\Theta\ni\vt\mapsto L_x(\vt)\coloneqq\prod\limits_{j=1}^{n}f_\vt(x_j)$ die \textbf{Likelihood-Funktion} zu $x$.
+	\item Der Wert $\hat{\vt}\in\Theta$ an dem $L_x(\cdot)$ einen Maximalwert annimmt heißt \textbf{Maximum-Likelihood-Schätzwert} von $\vt$ zu $x$. Der Schätzer $\hat{\vt}:\XG\rightarrow\Theta$ heißt \textbf{Maximum-Likelihood-Schätzer}.
+\end{itemize}
+Berechnung:
+\begin{itemize}
+	\item Maximieren der Likelihood-Funktion ist äquivalent zur Maximierung der Loglikelihood-Funktion: $l_x(\vt)\coloneqq\sum\limits_{i=1}^n\log f_\vt(x_i)$
+	\item Finde Maximum durch die Ableitung.
+\end{itemize}
