@@ -1,0 +1,55 @@
+\section{Wichtige Verteilungen}
+\paragraph{Bernoulliverteilung}
+\textbf{Interpretation}: Beschreibung von zufälligen Ereignissen, bei denen es nur zwei mögliche Versuchsausgänge gibt, wobei die Erfolgswahrscheinlichkeit $p$ beträgt.
+\begin{itemize}
+	\item $Ber_p$ ist festgelegt durch den Grundraum $\Omega=\{0,1\}$ und einer Wahrscheinlichkeit $p\in[0,1]$
+	\item Es gilt $\PP(\{1\})=p$ und $\PP(\{0\})=1-p$
+	\item $\E[X]=p$, $Var(X)=p\cdot(1-p)$
+\end{itemize}
+
+\paragraph{Gleichverteilung/Laplace-Verteilung}
+\textbf{Interpretation}: Jedes mögliche Ergebnis mit der gleichen Wahrscheinlichkeit ein.
+\begin{itemize}
+	\item Es gilt $\PP(\{A\})=\cfrac{|A|}{|\Omega|}$ für $A\subseteq\Omega$, falls diskret
+	\item Dichte: $f\coloneqq\frac{1}{b-a}\mathds{1}_{(a,b]}$, falls stetig
+	\item Erwartungswert und Varianz über Definition
+\end{itemize}
+
+\paragraph{Binomialverteilung}
+\textbf{Interpretation}: $Bin_{(n,M/N)}$ beschreibt die Anzahl der markierten Gegenstände bei $n$-maligem Ziehen mit Zurücklegen aus $N$ Gegenständen, von denen $M$ markiert sind.
+\begin{itemize}
+	\item Zähldichte: $f(k)=\binom{n}{k}p^k\cdot(1-p)^{n-k}$ \qquad$\forall k\in\{0,\ldots,n\}$
+	\item $\E[X]=n\cdot p$, $Var(X)=n\cdot p\cdot(1-p)$
+\end{itemize}
+
+\paragraph{Geometrische Verteilung}
+\textbf{Interpretation}: $Geo_p$ beschreibt die Anzahl der Fehlversuche vor dem ersten Erfolg.
+\begin{itemize}
+	\item Zähldichte: $f(k)=(1-p)^k\cdot p$ \qquad$\forall k\in\N_0$
+	\item $\E[X]=\cfrac{1-p}{p}$, $Var(X)=\cfrac{1-p}{p^2}$
+\end{itemize}
+
+\newpage
+\paragraph{Hypergeometrische Verteilung}
+\textbf{Interpretation}: $Hyp_{(N,M,n)}$ beschreibt die Anzahl der markierten Gegenstände bei $n$-maligem Ziehen ohne Zurücklegen aus $N$ Gegenständen, von denen $M$ markiert sind.
+\begin{itemize}
+	\item Es gilt: $\PP^X(\{m\})=\PP(X=m)=\cfrac{\binom{M}{m}\cdot\binom{N-M}{n-m}}{\binom{N}{n}}$ \qquad$\forall m\in\N_0$
+	\item $\E[X]=n\cdot\cfrac{M}{N}$, $Var(X)=n\cdot\cfrac{M}{N}(1-\cfrac{M}{N})\cfrac{N-n}{N-1}$
+\end{itemize}
+
+\paragraph{Poissonverteilung}
+Für eine große Anzahl an Experimenten $n$ und eine kleine Erfolgswahrscheinlichkeit $p$ kann $Bin_{(n,p)}$ durch $Poiss_\lambda$ approximiert werden.
+\begin{itemize}
+	\item Zähldichte: $e^{-\lambda}\cdot\frac{\lambda^k}{k!}$
+	\item $\E[X]=\lambda$, $Var(X)=\lambda$
+\end{itemize}
+
+\paragraph{Exponentialverteilung}
+$Exp_\lambda$ beschreibt Lebensdauern von Dingen, die nicht altern, d.h. die Wahrscheinlichkeit noch $y$ Jahre zu überleben, gegeben dass bereits $x$ Jahre überlebt wurden, hängt nicht von $x$ ab.
+\begin{itemize}
+	\item Dichte: $f_\lambda(x)\coloneqq\frac{1}{\lambda}e^{-x/\lambda}\cdot\mathds{1}_{[0,\infty)}(x)$, \qquad$x\in\R$
+	\item Verteilungsfunktion: $F_\lambda(x)=1-e^{-x/\lambda}$, \qquad$\forall x\geq 0$
+	\item $\E[X]=\cfrac{1}{\lambda}$, $Var(X)=\cfrac{1}{\lambda^2}$
+\end{itemize}
+
+%Fehlt noch min. Normalverteilung und Gamma-Verteilung
