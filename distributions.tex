@@ -12,7 +12,7 @@
 \begin{itemize}
 	\item Es gilt $\PP(\{A\})=\cfrac{|A|}{|\Omega|}$ für $A\subseteq\Omega$, falls diskret
 	\item Dichte: $f\coloneqq\frac{1}{b-a}\mathds{1}_{(a,b]}$, falls stetig
-	\item Erwartungswert und Varianz über Definition
+	\item $\E[X]=\cfrac{b+a}{2}$, $Var(X)=\cfrac{(b-a)^2}{12}$
 \end{itemize}
 
 \paragraph{Binomialverteilung}
@@ -49,7 +49,23 @@ $Exp_\lambda$ beschreibt Lebensdauern von Dingen, die nicht altern, d.h. die Wah
 \begin{itemize}
 	\item Dichte: $f_\lambda(x)\coloneqq\frac{1}{\lambda}e^{-x/\lambda}\cdot\mathds{1}_{[0,\infty)}(x)$, \qquad$x\in\R$
 	\item Verteilungsfunktion: $F_\lambda(x)=1-e^{-x/\lambda}$, \qquad$\forall x\geq 0$
-	\item $\E[X]=\cfrac{1}{\lambda}$, $Var(X)=\cfrac{1}{\lambda^2}$
+	\item $\E[X]=\lambda$, $Var(X)=\lambda^2$
 \end{itemize}
 
-%Fehlt noch min. Normalverteilung und Gamma-Verteilung
+\paragraph{Normalverteilung}
+$N_{(\mu,\sigma^2)}$ beschreibt die Abweichungen der Messwerte vieler natur-, wirtschafts- und ingenieurwissenschaftlicher Vorgänge vom Erwartungswert in sehr guter Näherung.
+\begin{itemize}
+	\item Dichte: $f(x)\coloneqq\cfrac{1}{\sqrt{2\pi\sigma^2}}\cdot exp(-\cfrac{(x-\mu)^2}{2\sigma^2})$, \qquad$x\in\R$
+	\item Verteilungsfunktion über Standardnormalverteilung: $F(x)=\Phi(\frac{x-\mu}{\sigma})$
+	\item $\E[X]=\mu$, $Var(X)=\sigma^2$
+\end{itemize}
+
+\newpage
+\paragraph{Gamma-Verteilung}
+$\Gamma_{\mu,\beta}$ ist eher von theoretischer Natur.
+\begin{itemize}
+	\item Dichte: $f(t)=\frac{\beta^\alpha}{\Gamma(\alpha)}t^{\alpha-1}e^{-\beta t}\mathds{1}_{(0,\infty)}(t)$, \qquad$t\in\R$\\
+	 mit Gamma-Funktion: $\Gamma(n)\coloneqq (n-1)!$
+	\item Verteilungsfunktion komplizierter?
+	\item $\E[X]=\cfrac{\mu}{\beta}$, $Var(X)=\cfrac{\mu}{\beta^2}$
+\end{itemize}
